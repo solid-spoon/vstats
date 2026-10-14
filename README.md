@@ -16,6 +16,10 @@ A gamified coding tracker for VSCodium that turns every keystroke, save, and hou
 **If VStats earns a place in your setup, a ⭐ helps more than you'd think.**
 It's what keeps the project alive, visible, and worth maintaining.
 
+<br />
+
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/banner.svg" alt="VStats" width="100%" />
+
 </div>
 
 ---
@@ -27,6 +31,38 @@ Coding is invisible work. You sit down, you type, and hours disappear without a 
 No accounts. No telemetry. No sign-ups. No upsells. No "AI-powered insights" you never asked for. Just you, your editor, and a single JSON file on your disk.
 
 It's built for people who like their tools small, fast, honest, and quietly enjoyable. If that sounds like you, you're in the right place.
+
+## Preview
+
+### Every language. Every color.
+
+Per-language time, weighted by real usage — colored with the actual VS Code / GitHub Linguist palette. `go` in blue, `python` in steel, `rust` in copper. You know your stack by looking at it.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/languages.svg" alt="Language breakdown" width="100%" />
+
+</div>
+
+### From Novice to Godlike.
+
+27 ranks on an exponential curve. Each tier gets its own color aura that glows in the dashboard hero. Every hour of code moves you up the ladder — a little faster between midnight and 5 AM.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/ranks.svg" alt="Rank ladder" width="100%" />
+
+</div>
+
+### Your month, wrapped.
+
+A Spotify-Wrapped-style recap for *This Month*, *Last Month*, *This Year*, or *All Time* — with period-over-period comparison, best day, top language, and top project. One click to copy as PNG to your clipboard or save to disk.
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/recap.svg" alt="Recap card" width="100%" />
+
+</div>
 
 ## Features
 
