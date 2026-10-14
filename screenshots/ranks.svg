@@ -57,7 +57,7 @@
           fill="none" stroke="url(#curveGrad)" stroke-width="2.4"
           stroke-linejoin="round" stroke-linecap="round"/>
 
-    <!-- ================= 7 ТОЧЕК ================= -->
+    <!-- ================= 7 DOTS ================= -->
     <g filter="url(#dotGlow)">
       <circle cx="68"   cy="375" r="5" fill="#8b8b8b"/>
       <circle cx="246"  cy="372" r="5" fill="#2196f3"/>
@@ -91,6 +91,5 @@
 
   </g>
 
-  <!-- outer border (поверх, по скруглённому контуру) -->
   <rect x="0.5" y="0.5" width="1279" height="459" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
 </svg>
