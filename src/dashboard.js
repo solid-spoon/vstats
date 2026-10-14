@@ -26,7 +26,7 @@ function openDashboard(context) {
   const media = vscode.Uri.joinPath(context.extensionUri, "media");
   const html0 = fs.readFileSync(path.join(media.fsPath, "panel.html"), "utf8");
 
-  const scripts = ["icons", "helpers", "render", "recap", "panel"];
+  const scripts = ["icons", "helpers", "recap-svg", "render", "recap", "panel"];
   let html = html0.replace(
     "{{css}}",
     panel.webview
@@ -79,10 +79,14 @@ function openDashboard(context) {
 function post() {
   if (!panel) return;
   const tracking = require("./tracking");
+  const config = vscode.workspace.getConfiguration("vstats");
+  const weeklyGoalHours = config.get("weeklyGoalHours", 20);
+
   panel.webview.postMessage({
     type: "stats",
     payload: state,
     live: tracking.computeLiveRates(),
+    weeklyGoalHours: weeklyGoalHours,
   });
 }
 

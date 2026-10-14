@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="icon.png" alt="VStats" width="128" height="128" />
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/icon.png" alt="VStats" width="128" height="128" />
 
 # VStats
 
@@ -59,37 +59,11 @@ It's built for people who like their tools small, fast, honest, and quietly enjo
 - **Status bar** shows `Lv. X · today Yh Zm · total Yh Zm`, refreshing every 15 seconds
 - **Live indicator** in the hero when tracking is active
 
-## Install
-
-### NixOS / home-manager
-
-The cleanest approach is a symlink into the extensions folder:
-
-```bash
-ln -s ~/proj/vstats ~/.vscode-oss/extensions/vstats
-```
-
-Then fully quit VSCodium — closing the window isn't enough, you may need to check the system tray — and reopen it.
-
-If the extension doesn't appear after restart:
-
-```bash
-# make sure VSCodium is really gone
-pkill -9 -f codium
-pgrep -a codium   # should return nothing
-
-# rebuild the extensions cache
-rm ~/.vscode-oss/extensions/extensions.json
-
-# relaunch
-codium &
-```
-
 ### From source (any platform)
 
 ```bash
-git clone <this-repo> ~/proj/vstats
-ln -s ~/proj/vstats ~/.vscode-oss/extensions/vstats
+git clone https://github.com/solid-spoon/vstats.git ~/vstats
+ln -s ~/vstats ~/.vscode-oss/extensions/vstats
 ```
 
 Then in VSCodium:

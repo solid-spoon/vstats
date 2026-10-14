@@ -121,7 +121,6 @@ function tick() {
 
   if (state.currentSession.ms > state.longestSessionMs)
     state.longestSessionMs = state.currentSession.ms;
-  if (state.currentSession.ms >= 30 * 60 * 1000) checkAchievements(state);
 
   checkAchievements(state);
   statusBar.update();

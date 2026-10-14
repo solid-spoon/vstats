@@ -1,11 +1,19 @@
 {
   "name": "vstats",
   "displayName": "VStats",
-  "description": "Gamified coding stats for VSCodium — level up your code.",
-  "version": "0.1.0",
+  "description": "Gamified coding stats for VSCodium — turn every keystroke, save, and hour into XP, levels, ranks, and achievements.",
+  "version": "1.0.0",
   "publisher": "local",
   "license": "MIT",
   "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solid-spoon/vstats"
+  },
+  "bugs": {
+    "url": "https://github.com/solid-spoon/vstats/issues"
+  },
+  "homepage": "https://github.com/solid-spoon/vstats#readme",
   "engines": {
     "vscode": "^1.74.0"
   },

@@ -23,13 +23,11 @@ body {
   padding: 32px 28px 48px;
   background: var(--bg);
   color: var(--fg);
-  font-family: var(
-    --vscode-font-family,
-    -apple-system,
-    "Segoe UI",
-    "Helvetica Neue",
-    sans-serif
-  );
+  font-family: var(--vscode-font-family,
+      -apple-system,
+      "Segoe UI",
+      "Helvetica Neue",
+      sans-serif);
   font-size: 13px;
   line-height: 1.5;
   font-variant-numeric: tabular-nums;
@@ -76,18 +74,17 @@ body {
   content: "";
   position: absolute;
   inset: -40% -20%;
-  background: radial-gradient(
-    ellipse at 25% 30%,
-    rgba(var(--rank-rgb), 0.16),
-    rgba(var(--rank-rgb), 0.05) 35%,
-    transparent 60%
-  );
+  background: radial-gradient(ellipse at 25% 30%,
+      rgba(var(--rank-rgb), 0.16),
+      rgba(var(--rank-rgb), 0.05) 35%,
+      transparent 60%);
   pointer-events: none;
   animation: aura-breathe 10s ease-in-out infinite;
   z-index: 0;
 }
 
 @keyframes aura-breathe {
+
   0%,
   100% {
     opacity: 0.75;
@@ -173,6 +170,7 @@ body {
 }
 
 @keyframes live-pulse {
+
   0%,
   100% {
     opacity: 1;
@@ -207,11 +205,9 @@ body {
 .xp-fill {
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(
-    90deg,
-    rgba(var(--rank-rgb), 0.6),
-    rgb(var(--rank-rgb))
-  );
+  background: linear-gradient(90deg,
+      rgba(var(--rank-rgb), 0.6),
+      rgb(var(--rank-rgb)));
   box-shadow: 0 0 16px rgba(var(--rank-rgb), 0.55);
   transition: width 0.9s var(--ease);
   transform-origin: left;
@@ -552,11 +548,9 @@ body {
 
 .week-bar-fill {
   width: 100%;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 80%, transparent),
-    color-mix(in srgb, var(--accent) 30%, transparent)
-  );
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--accent) 80%, transparent),
+      color-mix(in srgb, var(--accent) 30%, transparent));
   border-radius: 4px;
   min-height: 3px;
   transform-origin: bottom;
@@ -566,11 +560,9 @@ body {
 }
 
 .week-bar:hover .week-bar-fill {
-  background: linear-gradient(
-    180deg,
-    var(--accent),
-    color-mix(in srgb, var(--accent) 50%, transparent)
-  );
+  background: linear-gradient(180deg,
+      var(--accent),
+      color-mix(in srgb, var(--accent) 50%, transparent));
 }
 
 .week-bar.today .week-bar-fill {
@@ -617,11 +609,9 @@ body {
 
 .hour-bar-fill {
   width: 100%;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 75%, transparent),
-    color-mix(in srgb, var(--accent) 25%, transparent)
-  );
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--accent) 75%, transparent),
+      color-mix(in srgb, var(--accent) 25%, transparent));
   border-radius: 3px;
   min-height: 2px;
   transform-origin: bottom;
@@ -634,11 +624,9 @@ body {
 }
 
 .hour-bar.peak .hour-bar-fill {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 100%, transparent),
-    color-mix(in srgb, var(--accent) 55%, transparent)
-  );
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--accent) 100%, transparent),
+      color-mix(in srgb, var(--accent) 55%, transparent));
   box-shadow: 0 0 10px rgba(78, 201, 176, 0.35);
 }
 
@@ -748,21 +736,17 @@ body {
 .file-fill {
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--warm) 90%, transparent),
-    color-mix(in srgb, #0e639c 90%, transparent)
-  );
+  background: linear-gradient(90deg,
+      color-mix(in srgb, var(--warm) 90%, transparent),
+      color-mix(in srgb, #0e639c 90%, transparent));
   transform-origin: left;
   transition: width 0.6s var(--ease);
 }
 
 .file-fill-project {
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, #b388ff 90%, transparent),
-    color-mix(in srgb, #00bcd4 90%, transparent)
-  );
+  background: linear-gradient(90deg,
+      color-mix(in srgb, #b388ff 90%, transparent),
+      color-mix(in srgb, #00bcd4 90%, transparent));
 }
 
 .file-time {
@@ -911,7 +895,7 @@ body {
   font-size: 12.5px;
 }
 
-.session-row + .session-row {
+.session-row+.session-row {
   border-top: 1px solid var(--hairline);
 }
 
@@ -1016,47 +1000,47 @@ body {
   }
 }
 
-#root.entering > * {
+#root.entering>* {
   animation: fade-up 0.6s var(--entrance) backwards;
 }
 
-#root.entering > *:nth-child(1) {
+#root.entering>*:nth-child(1) {
   animation-delay: 0s;
 }
 
-#root.entering > *:nth-child(2) {
+#root.entering>*:nth-child(2) {
   animation-delay: 0.05s;
 }
 
-#root.entering > *:nth-child(3) {
+#root.entering>*:nth-child(3) {
   animation-delay: 0.1s;
 }
 
-#root.entering > *:nth-child(4) {
+#root.entering>*:nth-child(4) {
   animation-delay: 0.15s;
 }
 
-#root.entering > *:nth-child(5) {
+#root.entering>*:nth-child(5) {
   animation-delay: 0.2s;
 }
 
-#root.entering > *:nth-child(6) {
+#root.entering>*:nth-child(6) {
   animation-delay: 0.25s;
 }
 
-#root.entering > *:nth-child(7) {
+#root.entering>*:nth-child(7) {
   animation-delay: 0.3s;
 }
 
-#root.entering > *:nth-child(8) {
+#root.entering>*:nth-child(8) {
   animation-delay: 0.35s;
 }
 
-#root.entering > *:nth-child(9) {
+#root.entering>*:nth-child(9) {
   animation-delay: 0.4s;
 }
 
-#root.entering > *:nth-child(10) {
+#root.entering>*:nth-child(10) {
   animation-delay: 0.45s;
 }
 
@@ -1112,19 +1096,23 @@ body {
     border-color 0.2s var(--ease),
     background 0.2s var(--ease);
 }
+
 .recap-btn:hover {
   opacity: 1;
   border-color: color-mix(in srgb, var(--accent) 50%, var(--hairline-strong));
   background: color-mix(in srgb, var(--accent) 10%, transparent);
   transform: translateY(-1px);
 }
+
 .recap-btn:active {
   transform: translateY(0);
 }
+
 .recap-btn .icon {
   color: var(--muted);
   transition: color 0.2s var(--ease);
 }
+
 .recap-btn:hover .icon {
   color: var(--accent);
 }
@@ -1140,6 +1128,7 @@ body {
   padding: 24px;
   animation: recap-fade 0.22s var(--ease);
 }
+
 .recap-overlay.closing {
   animation: recap-fade-out 0.2s var(--ease) forwards;
 }
@@ -1148,14 +1137,17 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 @keyframes recap-fade-out {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -1180,11 +1172,9 @@ body {
   border-radius: 20px;
   border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--hairline));
   background:
-    radial-gradient(
-      ellipse 70% 50% at 0% 0%,
+    radial-gradient(ellipse 70% 50% at 0% 0%,
       color-mix(in srgb, var(--accent) 22%, transparent),
-      transparent 60%
-    ),
+      transparent 60%),
     var(--card);
   box-shadow:
     0 30px 80px -20px rgba(0, 0, 0, 0.6),
@@ -1198,16 +1188,24 @@ body {
     opacity: 0;
     transform: scale(0.94) translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
-.recap-close {
+/* ---------- Recap actions ---------- */
+.recap-actions {
   position: absolute;
   top: 14px;
   right: 14px;
+  display: flex;
+  gap: 2px;
+}
+
+.recap-action,
+.recap-close {
   width: 32px;
   height: 32px;
   display: flex;
@@ -1220,8 +1218,25 @@ body {
   cursor: pointer;
   transition:
     background 0.2s var(--ease),
-    color 0.2s var(--ease);
+    color 0.2s var(--ease),
+    transform 0.15s var(--ease);
 }
+
+.recap-action:hover,
+.recap-close:hover {
+  background: color-mix(in srgb, var(--fg) 8%, transparent);
+  color: var(--fg);
+}
+
+.recap-action:active {
+  transform: scale(0.94);
+}
+
+.recap-action.success {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--accent);
+}
+
 .recap-close:hover {
   background: color-mix(in srgb, var(--fg) 8%, transparent);
   color: var(--fg);
@@ -1230,6 +1245,7 @@ body {
 .recap-header {
   margin-bottom: 22px;
 }
+
 .recap-eyebrow {
   font-size: 10px;
   font-weight: 700;
@@ -1239,6 +1255,7 @@ body {
   text-shadow: 0 0 12px color-mix(in srgb, var(--accent) 50%, transparent);
   margin-bottom: 4px;
 }
+
 .recap-title {
   font-size: 26px;
   font-weight: 700;
@@ -1249,22 +1266,22 @@ body {
 .recap-hero {
   margin-bottom: 28px;
 }
+
 .recap-hero-value {
   font-size: 58px;
   font-weight: 800;
   letter-spacing: -2px;
   line-height: 1;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--accent) 90%, white),
-    var(--accent)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--accent) 90%, white),
+      var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 40px color-mix(in srgb, var(--accent) 40%, transparent);
   animation: pop-in 0.7s var(--spring) 0.15s backwards;
 }
+
 .recap-hero-label {
   color: var(--muted);
   font-size: 11px;
@@ -1277,6 +1294,7 @@ body {
 .recap-row {
   margin-bottom: 18px;
 }
+
 .recap-row-label {
   font-size: 10px;
   text-transform: uppercase;
@@ -1285,6 +1303,7 @@ body {
   color: var(--muted);
   margin-bottom: 6px;
 }
+
 .recap-row-value {
   font-size: 16px;
   display: flex;
@@ -1292,16 +1311,19 @@ body {
   gap: 8px;
   flex-wrap: wrap;
 }
+
 .recap-row-value b {
   font-weight: 700;
   letter-spacing: -0.3px;
 }
+
 .recap-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
+
 .recap-bar {
   margin-top: 8px;
   height: 4px;
@@ -1309,7 +1331,8 @@ body {
   border-radius: 99px;
   overflow: hidden;
 }
-.recap-bar > div {
+
+.recap-bar>div {
   height: 100%;
   border-radius: 99px;
   transform-origin: left;
@@ -1325,14 +1348,17 @@ body {
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
 }
+
 .recap-fact {
   text-align: center;
 }
+
 .recap-fact-value {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.4px;
 }
+
 .recap-fact-label {
   font-size: 9px;
   text-transform: uppercase;
@@ -1345,11 +1371,13 @@ body {
 .recap-unlocked {
   margin-bottom: 22px;
 }
+
 .recap-ach-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
+
 .recap-ach {
   display: inline-flex;
   align-items: center;
@@ -1360,24 +1388,31 @@ body {
   background: color-mix(in srgb, var(--accent) 8%, transparent);
   animation: pop-in 0.5s var(--spring) backwards;
 }
+
 .recap-ach:nth-child(1) {
   animation-delay: 0.3s;
 }
+
 .recap-ach:nth-child(2) {
   animation-delay: 0.36s;
 }
+
 .recap-ach:nth-child(3) {
   animation-delay: 0.42s;
 }
+
 .recap-ach:nth-child(4) {
   animation-delay: 0.48s;
 }
+
 .recap-ach:nth-child(5) {
   animation-delay: 0.54s;
 }
+
 .recap-ach-icon {
   color: var(--accent);
 }
+
 .recap-ach-name {
   font-size: 11.5px;
   font-weight: 600;
@@ -1391,6 +1426,7 @@ body {
   border-radius: 10px;
   margin-top: 20px;
 }
+
 .recap-tab {
   flex: 1;
   padding: 8px 10px;
@@ -1408,9 +1444,11 @@ body {
     color 0.2s var(--ease),
     background 0.2s var(--ease);
 }
+
 .recap-tab:hover {
   color: var(--fg);
 }
+
 .recap-tab.active {
   color: var(--fg);
   background: color-mix(in srgb, var(--fg) 8%, transparent);

@@ -10,7 +10,6 @@ const {
   defaultState,
   replace,
 } = require("./state");
-const { checkAchievements } = require("./achievements");
 const dashboard = require("./dashboard");
 const statusBar = require("./statusbar");
 

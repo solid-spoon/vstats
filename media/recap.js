@@ -212,7 +212,7 @@ function renderRecap() {
       "<span>" +
       Math.abs(delta).toFixed(1) +
       "%</span>" +
-      '<span class="muted">vs ' +
+      '<span class="muted"> vs ' +
       esc(prev.label) +
       "</span>" +
       "</div>";
@@ -257,39 +257,39 @@ function renderRecap() {
     "</div>" +
     (topLang
       ? '<div class="recap-row"><div class="recap-row-label">Top Language</div>' +
-        '<div class="recap-row-value"><span class="recap-dot" style="background:' +
-        langColorVal +
-        ";box-shadow:0 0 12px " +
-        langColorVal +
-        '"></span>' +
-        "<b>" +
-        esc(langName) +
-        '</b> <span class="muted">· ' +
-        fmtHm(topLang[1]) +
-        "</span></div>" +
-        '<div class="recap-bar"><div style="width:' +
-        ((topLang[1] / period.ms) * 100).toFixed(1) +
-        "%;background:linear-gradient(90deg, " +
-        langColorVal +
-        ", " +
-        langColorVal +
-        'aa)"></div></div></div>'
+      '<div class="recap-row-value"><span class="recap-dot" style="background:' +
+      langColorVal +
+      ";box-shadow:0 0 12px " +
+      langColorVal +
+      '"></span>' +
+      "<b>" +
+      esc(langName) +
+      '</b> <span class="muted">· ' +
+      fmtHm(topLang[1]) +
+      "</span></div>" +
+      '<div class="recap-bar"><div style="width:' +
+      ((topLang[1] / period.ms) * 100).toFixed(1) +
+      "%;background:linear-gradient(90deg, " +
+      langColorVal +
+      ", " +
+      langColorVal +
+      'aa)"></div></div></div>'
       : "") +
     (topProject
       ? '<div class="recap-row"><div class="recap-row-label">Top Project</div>' +
-        '<div class="recap-row-value"><b>' +
-        esc(topProject[0]) +
-        '</b> <span class="muted">· ' +
-        fmtHm(topProject[1]) +
-        "</span></div></div>"
+      '<div class="recap-row-value"><b>' +
+      esc(topProject[0]) +
+      '</b> <span class="muted">· ' +
+      fmtHm(topProject[1]) +
+      "</span></div></div>"
       : "") +
     (bestDay
       ? '<div class="recap-row"><div class="recap-row-label">Best Day</div>' +
-        '<div class="recap-row-value"><b>' +
-        esc(formatDayLabel(bestDay.key)) +
-        '</b> <span class="muted">· ' +
-        fmtHm(bestDay.ms) +
-        "</span></div></div>"
+      '<div class="recap-row-value"><b>' +
+      esc(formatDayLabel(bestDay.key)) +
+      '</b> <span class="muted">· ' +
+      fmtHm(bestDay.ms) +
+      "</span></div></div>"
       : "") +
     '<div class="recap-facts">' +
     '<div class="recap-fact"><div class="recap-fact-value">' +
@@ -307,23 +307,23 @@ function renderRecap() {
     "</div>" +
     (unlocked.length
       ? '<div class="recap-unlocked"><div class="recap-row-label" style="margin-bottom:8px">Unlocked</div>' +
-        '<div class="recap-ach-list">' +
-        unlocked
-          .map(function (a) {
-            return (
-              '<div class="recap-ach" title="' +
-              esc(a.desc) +
-              '">' +
-              '<div class="recap-ach-icon">' +
-              icon(a.icon, 14) +
-              "</div>" +
-              '<div class="recap-ach-name">' +
-              esc(a.name) +
-              "</div></div>"
-            );
-          })
-          .join("") +
-        "</div></div>"
+      '<div class="recap-ach-list">' +
+      unlocked
+        .map(function (a) {
+          return (
+            '<div class="recap-ach" title="' +
+            esc(a.desc) +
+            '">' +
+            '<div class="recap-ach-icon">' +
+            icon(a.icon, 14) +
+            "</div>" +
+            '<div class="recap-ach-name">' +
+            esc(a.name) +
+            "</div></div>"
+          );
+        })
+        .join("") +
+      "</div></div>"
       : "") +
     '<div class="recap-tabs">' +
     '<button class="recap-tab ' +
@@ -343,21 +343,17 @@ function renderRecap() {
 
   document.body.appendChild(overlay);
 
-  var cardEl = overlay.querySelector(".recap-card");
-
   overlay
     .querySelector(".recap-backdrop")
     .addEventListener("click", closeRecap);
   overlay.querySelector("#recap-close").addEventListener("click", closeRecap);
   overlay.querySelector("#recap-copy").addEventListener("click", function (e) {
-    copyRecapPng(cardEl, e.currentTarget);
+    copyRecapPng(e.currentTarget);
   });
   overlay
     .querySelector("#recap-download")
     .addEventListener("click", function () {
-      saveRecapPng(cardEl).catch(function (e) {
-        console.error("[vstats] save failed:", e);
-      });
+      saveRecapPng();
     });
   overlay.querySelectorAll(".recap-tab").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -372,142 +368,57 @@ function formatDayLabel(key) {
   return d.toLocaleDateString("en", { month: "short", day: "numeric" });
 }
 
-// ---------- PNG export ----------
-function inlineComputedStyles(source, target) {
-  var computed = getComputedStyle(source);
-  var style = "";
-  for (var i = 0; i < computed.length; i++) {
-    var prop = computed[i];
-    if (prop.indexOf("--") === 0) continue;
-    if (prop === "transform" || prop === "animation" || prop === "transition")
-      continue;
-    if (prop.indexOf("animation-") === 0 || prop.indexOf("transition-") === 0)
-      continue;
-    var val = computed.getPropertyValue(prop);
-    if (!val) continue;
-    style += prop + ":" + val + ";";
-  }
-  target.setAttribute("style", style);
-  var sc = source.children,
-    tc = target.children;
-  for (var j = 0; j < sc.length; j++) {
-    if (tc[j]) inlineComputedStyles(sc[j], tc[j]);
-  }
+// ---------- Export (SVG-built) ----------
+
+function currentRecapSvg() {
+  if (!recapState.stats) return "";
+  var period = computeRecapPeriod(recapState.stats, recapState.mode);
+  var prev = computePreviousPeriod(recapState.stats, recapState.mode);
+  return buildRecapSVG(recapState.stats, period, prev, recapState.mode);
 }
 
-async function nodeToCanvas(node, scale) {
-  scale = scale || 2;
-  var rect = node.getBoundingClientRect();
-  var w = Math.ceil(rect.width);
-  var h = Math.ceil(node.scrollHeight);
-
-  var clone = node.cloneNode(true);
-  var closeBtn = clone.querySelector(".recap-close");
-  if (closeBtn) closeBtn.remove();
-  var actions = clone.querySelector(".recap-actions");
-  if (actions) actions.remove();
-  var tabs = clone.querySelector(".recap-tabs");
-  if (tabs) tabs.remove();
-
-  inlineComputedStyles(node, clone);
-
-  clone.style.maxHeight = "none";
-  clone.style.height = "auto";
-  clone.style.overflow = "visible";
-  clone.style.transform = "none";
-  clone.style.animation = "none";
-  clone.style.margin = "0";
-
-  var xml = new XMLSerializer().serializeToString(clone);
-  var svg =
-    '<svg xmlns="http://www.w3.org/2000/svg" width="' +
-    w +
-    '" height="' +
-    h +
-    '" viewBox="0 0 ' +
-    w +
-    " " +
-    h +
-    '">' +
-    '<foreignObject x="0" y="0" width="' +
-    w +
-    '" height="' +
-    h +
-    '">' +
-    '<div xmlns="http://www.w3.org/1999/xhtml">' +
-    xml +
-    "</div>" +
-    "</foreignObject>" +
-    "</svg>";
-
-  var dataUrl = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
-  var img = new Image();
-  await new Promise(function (res, rej) {
-    img.onload = res;
-    img.onerror = function () {
-      rej(new Error("svg load failed"));
-    };
-    img.src = dataUrl;
-  });
-
-  var canvas = document.createElement("canvas");
-  canvas.width = w * scale;
-  canvas.height = h * scale;
-  var ctx = canvas.getContext("2d");
-  ctx.scale(scale, scale);
-  ctx.drawImage(img, 0, 0, w, h);
-  return canvas;
-}
-
-function canvasToBlob(canvas) {
-  return new Promise(function (res) {
-    canvas.toBlob(function (b) {
-      res(b);
-    }, "image/png");
-  });
-}
-
-function recapFilename(mode, label) {
-  var slug = String(label)
+function recapFilenameExt(ext) {
+  var period = computeRecapPeriod(recapState.stats, recapState.mode);
+  var slug = String(period.label)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-  return "vstats-" + mode + "-" + slug + ".png";
+  return "vstats-" + recapState.mode + "-" + slug + "." + ext;
 }
 
-async function copyRecapPng(cardEl, btn) {
+async function copyRecapPng(btn) {
   try {
-    var canvas = await nodeToCanvas(cardEl, 2);
-    var blob = await canvasToBlob(canvas);
+    var svg = currentRecapSvg();
+    var blob = await svgToPngBlob(svg, 2);
     if (!blob) throw new Error("blob failed");
     await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
-    markSuccess(btn);
+    markSuccess(btn, "content_copy");
   } catch (e) {
     console.error("[vstats] clipboard failed:", e);
-    await saveRecapPng(cardEl);
+    await saveRecapPng();
   }
 }
 
-async function saveRecapPng(cardEl) {
-  var canvas = await nodeToCanvas(cardEl, 2);
-  var dataUrl = canvas.toDataURL("image/png");
-  vscode.postMessage({
-    type: "savePng",
-    dataUrl: dataUrl,
-    filename: recapFilename(
-      recapState.mode,
-      computeRecapPeriod(recapState.stats, recapState.mode).label,
-    ),
-  });
+async function saveRecapPng() {
+  try {
+    var svg = currentRecapSvg();
+    var dataUrl = await svgToPngDataUrl(svg, 2);
+    vscode.postMessage({
+      type: "savePng",
+      dataUrl: dataUrl,
+      filename: recapFilenameExt("png"),
+    });
+  } catch (e) {
+    console.error("[vstats] save png failed:", e);
+  }
 }
 
-function markSuccess(btn) {
+function markSuccess(btn, originalIcon) {
   if (!btn) return;
-  var prev = btn.innerHTML;
   btn.classList.add("success");
   btn.innerHTML = icon("check", 18);
   setTimeout(function () {
     btn.classList.remove("success");
-    btn.innerHTML = prev;
+    btn.innerHTML = icon(originalIcon || "content_copy", 17);
   }, 1200);
 }
