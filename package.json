@@ -1,0 +1,65 @@
+{
+  "name": "vstats",
+  "displayName": "VStats",
+  "description": "Gamified coding stats for VSCodium — level up your code.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "stats",
+    "gamification",
+    "productivity",
+    "tracker",
+    "coding time",
+    "xp",
+    "levels",
+    "recap"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "vstats.openDashboard",
+        "title": "VStats: Open Dashboard"
+      },
+      {
+        "command": "vstats.resetStats",
+        "title": "VStats: Reset Stats"
+      },
+      {
+        "command": "vstats.showStoragePath",
+        "title": "VStats: Show Stats File"
+      },
+      {
+        "command": "vstats.exportStats",
+        "title": "VStats: Export Stats"
+      },
+      {
+        "command": "vstats.importStats",
+        "title": "VStats: Import Stats"
+      }
+    ],
+    "configuration": {
+      "title": "VStats",
+      "properties": {
+        "vstats.weeklyGoalHours": {
+          "type": "number",
+          "default": 20,
+          "minimum": 1,
+          "description": "Weekly coding goal in hours."
+        }
+      }
+    }
+  }
+}

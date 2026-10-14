@@ -1,0 +1,23 @@
+# VStats local stats (never commit your own data)
+data/
+stats.json
+*.corrupt-*
+
+# Nix build outputs
+result
+result-*
+
+# Editor / OS noise
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Node (in case anyone runs a tool here)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
