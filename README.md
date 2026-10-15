@@ -97,7 +97,7 @@ A Spotify-Wrapped-style recap for *This Month*, *Last Month*, *This Year*, or *A
 
 ### Installation
 
-Download the latest `.vsix` file from the [Releases](https://github.com/solid-spoon/vstats/releases) page.
+Download the latest `.vsix` file from the [Releases](https://github.com/solid-spoon/vstats/releases/latest) page.
 
 #### In VSCodium / VS Code:
 1. Open the Extensions view (`Ctrl+Shift+X`).
