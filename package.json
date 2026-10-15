@@ -70,7 +70,7 @@
       }
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "@vscode/vsce": "^4.0.0"
   }
 }
