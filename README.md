@@ -18,7 +18,7 @@ It's what keeps the project alive, visible, and worth maintaining.
 
 <br />
 
-<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/banner.svg" alt="VStats" width="100%" />
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/banner.png" alt="VStats" width="100%" />
 
 </div>
 
@@ -40,7 +40,7 @@ Per-language time, weighted by real usage — colored with the actual VS Code / 
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/languages.svg" alt="Language breakdown" width="100%" />
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/languages.png" alt="Language breakdown" width="100%" />
 
 </div>
 
@@ -50,7 +50,7 @@ Per-language time, weighted by real usage — colored with the actual VS Code / 
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/ranks.svg" alt="Rank ladder" width="100%" />
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/ranks.png" alt="Rank ladder" width="100%" />
 
 </div>
 
@@ -60,7 +60,7 @@ A Spotify-Wrapped-style recap for *This Month*, *Last Month*, *This Year*, or *A
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/recap.svg" alt="Recap card" width="100%" />
+<img src="https://raw.githubusercontent.com/solid-spoon/vstats/main/screenshots/recap.png" alt="Recap card" width="100%" />
 
 </div>
 

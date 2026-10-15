@@ -3,7 +3,7 @@
   "displayName": "VStats",
   "description": "Gamified coding stats for VSCodium — turn every keystroke, save, and hour into XP, levels, ranks, and achievements.",
   "version": "1.0.0",
-  "publisher": "local",
+  "publisher": "solid-spoon",
   "license": "MIT",
   "icon": "icon.png",
   "repository": {
@@ -69,5 +69,8 @@
         }
       }
     }
+  },
+  "dependencies": {
+    "@vscode/vsce": "^4.0.0"
   }
 }
