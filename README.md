@@ -95,18 +95,24 @@ A Spotify-Wrapped-style recap for *This Month*, *Last Month*, *This Year*, or *A
 - **Status bar** shows `Lv. X · today Yh Zm · total Yh Zm`, refreshing every 15 seconds
 - **Live indicator** in the hero when tracking is active
 
-### From source (any platform)
+### Installation
 
+Download the latest `.vsix` file from the [Releases](https://github.com/solid-spoon/vstats/releases) page.
+
+#### In VSCodium / VS Code:
+1. Open the Extensions view (`Ctrl+Shift+X`).
+2. Click the **`...`** (More Actions) icon in the top right corner.
+3. Select **Install from VSIX...** and choose the downloaded file.
+
+Alternatively, install it via your terminal:
 ```bash
-git clone https://github.com/solid-spoon/vstats.git ~/vstats
-ln -s ~/vstats ~/.vscode-oss/extensions/vstats
+# for vscode
+code --install-extension vstats.vsix
+# for vscodium
+codium --install-extension vstats.vsix
 ```
 
-Then in VSCodium:
-
-1. `Ctrl+Shift+P` → **VStats: Open Dashboard**
-
-That's it. No `npm install`, no build step, no 400 MB of `node_modules` on your disk. You clone it, it runs.
+Then simply press `Ctrl+Shift+P` → **VStats: Open Dashboard** to level up your code!
 
 ## Commands
 
