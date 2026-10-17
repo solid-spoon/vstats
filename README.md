@@ -122,7 +122,8 @@ Then simply press `Ctrl+Shift+P` → **VStats: Open Dashboard** to level up your
 | `VStats: Reset Stats` | Wipe all tracked data |
 | `VStats: Show Stats File` | Open `stats.json` in the editor |
 | `VStats: Export Stats` | Save a backup JSON |
-| `VStats: Import Stats` | Load a backup JSON |
+| `VStats: Import Stats` | Load a backup JSON (replaces current stats) |
+| `VStats: Merge Stats File` | Merge another `stats.json` into current stats — useful for combining two machines |
 
 ## Configuration
 
@@ -166,7 +167,8 @@ vstats/
 │   ├── statusbar.js          status bar item
 │   ├── dashboard.js          webview panel
 │   ├── tracking.js           events, tick loop, live rates
-│   └── commands.js           command palette
+│   ├── commands.js           command palette
+│   └── merger.js             cross-machine stats merge
 └── media/
     ├── panel.html
     ├── panel.css

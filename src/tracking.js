@@ -54,12 +54,19 @@ function ensureYear(key) {
 function computeLiveRates() {
   const now = Date.now();
   const cutoff = now - LIVE_WINDOW_MS;
-  const keys = liveKeyTs.length;
+
+  // Prune stale entries before computing. Without this, closing the dashboard
+  // (or just idling without typing) leaves the arrays frozen — the live
+  // indicator keeps showing the rate from the moment you last typed.
+  while (liveKeyTs.length && liveKeyTs[0] < cutoff) liveKeyTs.shift();
+  while (liveChars.length && liveChars[0].ts < cutoff) liveChars.shift();
+
   let chars = 0;
   for (const x of liveChars) chars += x.n;
+
   return {
     window: LIVE_WINDOW_MS / 1000,
-    apm: keys,
+    apm: liveKeyTs.length,
     cpm: chars,
     wpm: chars / 5,
   };
@@ -87,7 +94,8 @@ function tick() {
   const ext = extFromPath(currentFile);
   if (ext) state.extensions[ext] = (state.extensions[ext] || 0) + dt;
 
-  state.days[todayKey()] = (state.days[todayKey()] || 0) + dt;
+  const today = todayKey();
+  state.days[today] = (state.days[today] || 0) + dt;
   state.hours[d.getHours()] += dt;
   state.weekdays[d.getDay()] += dt;
 
@@ -188,6 +196,10 @@ function onChangeText(e) {
   }
   if (added > 0) liveChars.push({ ts: now, n: added });
 
+  // Keep the live arrays bounded even when the dashboard is closed and
+  // computeLiveRates() is never called. computeLiveRates() also prunes — this
+  // is just the memory-safety net for the "typed a lot, then closed the panel"
+  // case.
   const cutoff = now - LIVE_WINDOW_MS;
   while (liveKeyTs.length && liveKeyTs[0] < cutoff) liveKeyTs.shift();
   while (liveChars.length && liveChars[0].ts < cutoff) liveChars.shift();
